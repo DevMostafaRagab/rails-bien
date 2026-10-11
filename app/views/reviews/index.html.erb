@@ -1,0 +1,7 @@
+<p>The random reviews for all restaurants is: <%= @reviews_number %></p>
+<% @review.each do |review| %>
+  <div class="review">
+    <%= link_to review.title, review_path(review) %>
+  </div>
+<% end %>
+
