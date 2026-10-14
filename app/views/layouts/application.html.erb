@@ -24,28 +24,29 @@
 
 </head>
 
-<body>
+<body class="site-layout">
 
-<header>
+<header class="main-header">
+  <nav class="navbar">
 
-  <h1>
     <%= link_to root_path do %>
       <%= image_tag "bien-logo.svg" %>
     <% end %>
-  </h1>
 
+    <div class="nav-links">
+      <%= link_to "Home", root_path %>
+      <%= link_to "Add review", new_review_path %>
+      <a href="#">Dashboard</a>
 
-  <!--  <h1><%#= link_to "*Bien Reviews*", root_path %></h1>-->
-
-  <h1>Best Restaurants Reviews</h1>
-
-  <nav>
-    <%= link_to "Add review", new_review_path %>
+    </div>
   </nav>
-
 </header>
 
-<%= yield %>
+<main class="main-content">
+  <h1>Best Restaurants Reviews</h1>
+  <%= yield %>
+</main>
+
 
 <footer>
   <h3>Copyright 2026 Bien Reviews</h3>
