@@ -10,8 +10,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.save
-    redirect_to root_path
+    if @review.save
+      redirect_to root_path, notice: "Event was successfully created."
+    else
+      # render :new, status: :unprocessable_entity
+      render "new"
+    end
   end
 
   def show
@@ -30,8 +34,12 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to reviews_path(@review)
+    if @review.update(review_params)
+      # redirect to someware new
+      redirect_to reviews_path(@review)
+    else
+      render "edit"
+    end
   end
 
   # refactoring

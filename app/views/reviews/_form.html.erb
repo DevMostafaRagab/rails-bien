@@ -1,5 +1,14 @@
 <%= form_for @review do |f| %>
 
+  <% if @review.errors.any? %>
+    <h4><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h4>
+    <div class="errors">
+      <% @review.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :title %>
     <%= f.text_field :title %>
